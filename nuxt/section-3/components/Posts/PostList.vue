@@ -1,23 +1,13 @@
 <template>
   <section class="featured-posts">
     <PostPreview 
-      id="1" 
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id" 
       :is-admin="isAdmin"
-      title="Hello"
-      preview-text="My post!" 
-      thumbnail="https://source.unsplash.com/random/400x200" />
-    <PostPreview 
-      id="2" 
-      :is-admin="isAdmin"
-      title="Goodbye"
-      preview-text="My post blah!" 
-      thumbnail="https://source.unsplash.com/random/400x200" />
-    <PostPreview 
-      id="3" 
-      :is-admin="isAdmin"
-      title="Third thing"
-      preview-text="My piss!" 
-      thumbnail="https://source.unsplash.com/random/400x200" />
+      :title="post.title"
+      :preview-text="post.previewText" 
+      :thumbnail="post.thumbnail" />
   </section>
 </template>
 
@@ -33,6 +23,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }

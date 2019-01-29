@@ -4,7 +4,7 @@
       <h1>Get the latest tech news</h1>
     </section>
     <section class="featured-posts">
-      <PostList />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -15,6 +15,34 @@ import PostList from '@/components/Posts/PostList'
 export default {
   components: {
     PostList
+  },
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  asyncData(context, callback) {
+    // only called in pages
+    // this doesn't work, because it's not created yet
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'First Post',
+            previewText: 'this is our first post',
+            thumbnail: 'https://source.unsplash.com/random/400x200'
+          },
+          {
+            id: '2',
+            title: 'Second Post',
+            previewText: 'this is our second post',
+            thumbnail: 'https://source.unsplash.com/random/400x200'
+          }
+        ]
+      })
+    }, 1500)
+
   }
 }
 </script>
