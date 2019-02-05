@@ -1,6 +1,6 @@
-# section-3 course
+# nuxt-course
 
-> udemy course
+> Nuxt.js course for Udemy
 
 ## Build Setup
 

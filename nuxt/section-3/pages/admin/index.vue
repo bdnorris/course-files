@@ -1,13 +1,11 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <AppButton 
-        type="button" 
-        @click="$router.push('/admin/new-post')">Create Post</AppButton>
+      <AppButton @click="$router.push('/admin/new-post')">Create Post</AppButton>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
-      <PostList is-admin />
+      <PostList isAdmin />
     </section>
   </div>
 </template>
@@ -40,3 +38,4 @@ export default {
   text-align: center;
 }
 </style>
+

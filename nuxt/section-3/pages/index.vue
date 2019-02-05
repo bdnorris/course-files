@@ -1,67 +1,42 @@
 <template>
   <div class="home-page">
     <section class="intro">
-      <h1>Get the latest tech news</h1>
+      <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostList :posts="loadedPosts" />
-    </section>
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
-import PostList from '@/components/Posts/PostList'
+import PostList from "@/components/Posts/PostList";
 
 export default {
   components: {
     PostList
   },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
+  }
   // data() {
   //   return {
   //     loadedPosts: []
-  //   }
+  //   };
   // },
-  asyncData(context, callback) {
-    // only called in pages
-    // this doesn't work, because it's not created yet
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'First Post',
-            previewText: 'this is our first post',
-            thumbnail: 'https://source.unsplash.com/random/400x200'
-          },
-          {
-            id: '2',
-            title: 'Second Post',
-            previewText: 'this is our second post',
-            thumbnail: 'https://source.unsplash.com/random/400x200'
-          }
-        ]
-      })
-    }, 1500)
-
-  }
-}
+};
 </script>
 
-<style scoped>
 
-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+<style scoped>
 .intro {
   height: 300px;
   position: relative;
   padding: 30px;
   box-sizing: border-box;
+  background-image: url("~assets/images/main-page-background.jpg");
   background-position: center;
   background-size: cover;
-  background-image: url('~assets/images/meduana-PdnseHuDFZU.jpg')
 }
 
 .intro h1 {
@@ -85,7 +60,12 @@ img {
   }
 }
 
-
-
-
+.featured-posts {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 </style>

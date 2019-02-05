@@ -7,39 +7,17 @@
 </template>
 
 <script>
-import AdminPostForm from '@/components/Admin/AdminPostForm'
-// import AppButton from '@/components/UI/AppButton'
+import AdminPostForm from "@/components/Admin/AdminPostForm";
 
 export default {
   layout: 'admin',
   components: {
-    // AppControlInput,
-    // AppButton
     AdminPostForm
-  },
-  data() {
-    return {
-      editedPost: {
-        author: '',
-        title: '',
-        thumbnailLink: '',
-        content: '',
-      }
-    }
-  },
-  methods: {
-    onSave() {
-      // save post
-      console.log(this.editedPost)
-    },
-    onCancel() {
-      this.$router.push('/admin')
-    }
   }
-}
+};
 </script>
 
-<style>
+<style scoped>
 .new-post-form {
   width: 90%;
   margin: 20px auto;

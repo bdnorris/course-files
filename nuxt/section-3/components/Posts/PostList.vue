@@ -1,13 +1,13 @@
 <template>
-  <section class="featured-posts">
-    <PostPreview 
+  <section class="post-list">
+    <PostPreview
       v-for="post in posts"
       :key="post.id"
-      :id="post.id" 
+      :id="post.id"
       :is-admin="isAdmin"
+      :thumbnail="post.thumbnail"
       :title="post.title"
-      :preview-text="post.previewText" 
-      :thumbnail="post.thumbnail" />
+      :previewText="post.previewText" />
   </section>
 </template>
 
@@ -15,7 +15,6 @@
 import PostPreview from '@/components/Posts/PostPreview'
 
 export default {
-  name: 'PostList',
   components: {
     PostPreview
   },
@@ -32,8 +31,10 @@ export default {
 }
 </script>
 
-<style>
-.featured-posts {
+
+<style scoped>
+
+.post-list {
   display: flex;
   padding: 20px;
   box-sizing: border-box;
@@ -42,3 +43,4 @@ export default {
   justify-content: center;
 }
 </style>
+

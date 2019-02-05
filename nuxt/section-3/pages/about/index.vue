@@ -13,7 +13,4 @@
   text-align: center;
   padding: 30px;
 }
-  p {
-      margin: 1em 0;
-  }
 </style>
